@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Housewarming Ceremony Gallery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f5f1;  /* Soft beige background */
+            color: #333;
+        }
+
+        header {
+            background-color: #f2e8d5;  /* Light beige background */
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            color: #5c4033;  /* Dark beige font color */
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-top: 10px;
+            color: #6c4f3d;  /* Slightly darker beige */
+        }
+
+        /* Gallery Styles */
+        main {
+            padding: 30px 20px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            justify-items: center;
+            margin-top: 40px;
+        }
+
+        .photo {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            border: 5px solid #d4c4b5;  /* Soft beige border around each photo */
+            border-radius: 12px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .photo:hover {
+            transform: scale(1.05);
+        }
+
+        .photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .photo:hover img {
+            transform: scale(1.1);
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4);  /* Dark overlay */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            border-radius: 12px;
+        }
+
+        .photo:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+            padding: 12px 20px;
+            background-color: #f4a261;  /* Light coral-orange button */
+            border-radius: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .overlay a:hover {
+            background-color: #e76f51;  /* Darker coral-orange on hover */
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #f2e8d5;
+            color: #5c4033;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Housewarming Ceremony Gallery</h1>
+        <p>A collection of beautiful memories</p>
+    </header>
+    <main>
+        <div class="gallery">
+            <!-- Dynamic Image Loading -->
+            <script>
+                const gallery = document.querySelector('.gallery');
+
+                for (let i = 1; i <= 254; i++) {
+                    const div = document.createElement('div');
+                    div.classList.add('photo');
+
+                    div.innerHTML = `
+                        <img src="Photos (${i}).jpg" alt="Housewarming Ceremony ${i}">
+                        <div class="overlay">
+                            <a href="Photos (${i}).jpg" download>Download</a>
+                        </div>
+                    `;
+
+                    gallery.appendChild(div);
+                }
+            </script>
+        </div>
+    </main>
+    <footer>
+        &copy; 2025 Housewarming Ceremony Gallery. All rights reserved.
+    </footer>
+</body>
+</html>
